@@ -175,6 +175,27 @@ In this flow *BOOT.bin* will contain only the PMU firmware (loaded by the boot R
 
 The u-boot *SPL* will load from the SD card the *ATF* and the u-boot proper.
 
-Under the hood
---------------
+Linux kernel & DTB
+------------------
+The linux kernel from Xilinx tree has been used.
+In order to configure the kernel run
+```
+make CROSS_COMPILE=<your-toolchain-prefix> ARCH=arm64 xilinx_zynqmp_defconfig
+```
+
+Then to compile the kernel image
+```
+make CROSS_COMPILE=<your-toolchain-prefix> ARCH=arm64 `nproc`
+```
+
+And to make the DTB
+```
+make CROSS_COMPILE=<your-toolchain-prefix> ARCH=arm64 zynqmp-zcu102-rev1.0.dtb
+```
+
+*NOTE:* I had to revert commit *sdhci: add support for switching to UHS-I modes on ZynqMP Platform - dcbfca5021bbd5160f0f2e8f42b7bf6aca2d02bd* otherwise the SD card didn't work. This is considered a temporary hack.
+
+
+Under the hood: ATF and PMU
+---------------------------
 Further details about how ATF and the PMU firmware work are **HERE FIXME FIXME FIXME**
