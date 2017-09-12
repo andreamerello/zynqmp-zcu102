@@ -52,7 +52,7 @@ An even more flexible solution would be letting the boot process going on until 
 - the u-boot proper must reach the command line stage without relying on PMU services, either directly, or indirectly (via ATF).
 - the PMU firmware must be loaded from EL2
 
-It seems that MMIO access functions inside u-boot performs direct MMIO accesses as long as we are in SPL, while they switch to perform indirect MMIO accesses, that is they ask to ATF to perform them in its behalf, when we are in u-boot proper. ATF will in its turn ask to the PMU to perform those MMIO reads/writes. Look at *zynqmp_mmio_[read/write]()* in *arch/arm/cpu/armv8/zynqmp/cpu.c*
+It seems that MMIO access functions inside u-boot performs direct MMIO accesses as long as we are in SPL, while they switch to perform indirect MMIO accesses, that is they ask to ATF to perform them in its behalf, when we are in u-boot proper. ATF will in its turn ask to the PMU to perform those MMIO reads/writes. Look at *zynqmp_mmio_read() and zynqmp_mmio_write()* in *arch/arm/cpu/armv8/zynqmp/cpu.c*
 
 The reason for this is not known. Forcing u-boot to always perform direct MMIO accesses did work; possibly this could fail in other scenarios (with secure boot enabled) or causes some side-effect that I didn't noticed.
 

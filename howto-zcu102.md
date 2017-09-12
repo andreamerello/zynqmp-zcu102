@@ -83,7 +83,7 @@ mb-objcopy -O binary pmu_fw.elf pmu_fw.bin
 
 The PMU firmware will need to be run-time configured with the so-called *PMU configuration object*.
 - *FSBL* will do it in its early stages
-- *SPL* will not, and hacks for make this happening are described **here FIXME FIXME FIXME**
+- *SPL* will not, and hacks for make this happening are described [here] (atfpmu.md)
 
 The configuration object is anyway created by the Xilinx SDK when FSBL is created, and it's stored in *pm_cfg_obj.c* inside the *fsbl_bsp/psu_cortexa53_0/libsrc/xilpm_v2_1/src/* directory.
 
@@ -169,7 +169,7 @@ You need to put on your SD card:
 The FPGA image could be load afterwards from either U-boot proper or Linux.
 
 *NOTE:* Currently this boot method does not work because the PMU configuration object is missing!
-Workarounds to make the system successfully boot are descibed **here FIXME FIXME FIXME**
+Workarounds to make the system successfully boot are descibed [here] (atfpmu.md)
 
 In this flow *BOOT.bin* will contain only the PMU firmware (loaded by the boot ROM) and the u-boot *SPL*.
 
@@ -198,4 +198,4 @@ make CROSS_COMPILE=<your-toolchain-prefix> ARCH=arm64 zynqmp-zcu102-rev1.0.dtb
 
 Under the hood: ATF and PMU
 ---------------------------
-Further details about how ATF and the PMU firmware work are **HERE FIXME FIXME FIXME**
+Further details about how ATF and the PMU firmware work are [here] (atfpmu.md)
