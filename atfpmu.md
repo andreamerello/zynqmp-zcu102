@@ -10,6 +10,8 @@ More in the detail, the main CPU prepares some data for the PMU - that is, a com
 
 AFAICT there are few kind of IPI that can be raised, and they are identified by an IPI number. Only the first one seems to be used (for PM services).
 
+*Xilinx doumentation says: IPI-1 is used for a special purpose in warm-restart to trigger quiescening of APU cores by ATF. IPI-2 and IPI-3 are reserved.*
+
 The PMU FW IPI entry point is *PmIpiHandler()*. PM services IPI are then handled by *XPfw_PmIpiHandler()*.
 
 Look at *pm_api.c* in the PMU firmware for a list of the PMU commands.
