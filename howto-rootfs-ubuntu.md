@@ -40,7 +40,7 @@ Then add an user to the rootfs, I used 'ubuntu' user
 sudo useradd --root <your SD root> -m -s /bin/bash ubuntu
 ```
 
-Set a password for both the new user and root: edit /etc/shadow and put an hash from a password you know.. (look at /etc/shadow on your desktop)
+Set a password for both the new user and root: edit *etc/shadow* and put an hash from a password you know.. (look at */etc/shadow* on your desktop)
 
 Boot the target and, as root, run:
 ```
@@ -56,7 +56,7 @@ Get the 'ubuntu base image'
 wget http://cdimage.ubuntu.com/ubuntu-base/releases/14.04/release/ubuntu-base-14.04.5-base-arm64.tar.gz
 ```
 
-create etc/init/ttyPS0.conf with the following contents
+create *etc/init/ttyPS0.conf* with the following contents
 
 
 ```
@@ -80,7 +80,7 @@ This will enable a root console on the serial terminal
 
 You can create other users from there later.
 
-Create /etc/network/interfaces and fill with your network configuration.
+Create *etc/network/interfaces* and fill with your network configuration.
 For example for dhcp:
 
 ```
