@@ -1,4 +1,4 @@
-Preparing a minimal Ubintu rootfs
+Preparing a minimal Ubuntu rootfs
 =================================
 
 These are myrandom notes on how to get started with a minimal ubuntu rootfs that allows you to log from the serial port and use apt-get install to install other stuff. This is intended to be a simple starting point to hack with your board and test stuff.
@@ -10,7 +10,7 @@ apt-get install ubuntu-desktop
 ```
 .. It will take a lot of time..
 
-*NOTE:*You are supposed to configure properly users and passwords later on, **otherwise your system will be insecure**.
+*NOTE:* You are supposed to configure properly users and passwords later on, **otherwise your system will be insecure**.
 
 Ubuntu 16.04
 ------------
