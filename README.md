@@ -1,5 +1,5 @@
 # zynqmp-zcu102
-This project is about about zynqmp (zcu102 board) boot process and bringup (up to linux kernel).
+This project is about about zynqmp (zcu102 board) boot process and bringup.
 
 Here you can find some notes
 
@@ -8,3 +8,5 @@ Here you can find some notes
 [ATF/PMU internals](./atfpmu.md)
 
 [Debugging hacks](./debugging.md)
+
+[Ubuntu rootfs](./howto-rootfs-ubuntu.md)
