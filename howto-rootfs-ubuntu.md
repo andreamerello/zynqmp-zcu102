@@ -1,7 +1,7 @@
 Preparing a minimal Ubuntu rootfs
 =================================
 
-These are myrandom notes on how to get started with a minimal ubuntu rootfs that allows you to log from the serial port and use apt-get install to install other stuff. This is intended to be a simple starting point to hack with your board and test stuff.
+These are my random notes on how to get started with a minimal ubuntu rootfs that allows you to log from the serial port and use *apt-get install* to install other stuff.
 
 For example to install a full ubuntu desktop you may run:
 
@@ -19,31 +19,30 @@ Get the 'ubuntu base image'
 ```
 wget http://cdimage.ubuntu.com/ubuntu-base/releases/16.04/release/ubuntu-base-16.04.3-base-arm64.tar.gz
 ```
-uncompress it on your SD card root partition
+Uncompress it on your SD card root partition.
 *NOTE:* since file permissions and owners need to be preservated, you need to do this as root
 
 Get the net-tool package (for *ifconfig*, *route*)
 ```
 wget http://launchpadlibrarian.net/178999027/net-tools_1.60-26ubuntu1_arm64.deb
 ```
-This is enough to set a *static* IP addess. Installing packages for DHCP is also possible, but due to several dependancies of *isc-dhcp-client_4.3.3-5ubuntu12_arm64.deb* you'll need to download several packages.
-
 And copy it on the SD root partition.
 
+*NOTE*: This is enough to set a *static* IP addess. Installing packages for DHCP is also possible, but due to several dependancies of *isc-dhcp-client_4.3.3-5ubuntu12_arm64.deb* you'll need to download several other packages.
 
-You need this hack to enable login on the serial console
+You need the following hack to enable login on the serial console
 ```
 sudo ln -s lib/systemd/system/getty@.service etc/systemd/system/getty.target.wants/getty@ttyPS0.service
 ```
 
-Add an user to the rootfs, I used 'ubuntu' user
+Then add an user to the rootfs, I used 'ubuntu' user
 ```
 sudo useradd --root <your SD root> -m -s /bin/bash ubuntu
 ```
 
 Set a password for both the new user and root: edit /etc/shadow and put an hash from a password you know.. (look at /etc/shadow on your desktop)
 
-boot the target and, as root, run
+Boot the target and, as root, run:
 ```
 dpkg -i /net-tools_1.60-26ubuntu1_arm64.deb
 ```
@@ -95,7 +94,7 @@ iface eth0 inet dhcp
 Settings for both Ubuntu versions
 ---------------------------------
 
-create /etc/hosts with the following contents (otherwise *ssh -X* wouldn't work, among other things)
+Create /etc/hosts with the following contents (otherwise *ssh -X* wouldn't work, among other things)
 
 ```
 localhost 127.0.0.1
