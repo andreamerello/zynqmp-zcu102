@@ -118,5 +118,4 @@ To boot from another partition, just override it:
 
 ```
 setenv sdroot0 setenv bootargs $bootargs root=/dev/mmcblk0p3 rw rootwait
-
 ```
