@@ -30,10 +30,12 @@ And copy it on the SD root partition.
 
 *NOTE*: This is enough to set a *static* IP addess. Installing packages for DHCP is also possible, but due to several dependancies of *isc-dhcp-client_4.3.3-5ubuntu12_arm64.deb* you'll need to download several other packages.
 
-You need the following hack to enable login on the serial console
+You may need the following hack to enable login on the serial console
 ```
 sudo ln -s lib/systemd/system/getty@.service etc/systemd/system/getty.target.wants/getty@ttyPS0.service
 ```
+
+*NOTE*: for unknown reasons after a while, maybe after istalling more packages, it started to have two overlapping getty started on the serial port, and I had to remove the above symlink.
 
 Then add an user to the rootfs, I used 'ubuntu' user
 ```
