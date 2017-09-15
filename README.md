@@ -10,3 +10,5 @@ Here you can find some notes
 [Debugging hacks](./debugging.md)
 
 [Ubuntu rootfs](./howto-rootfs-ubuntu.md)
+
+[Jumper configuration](./jumpers.md)
